@@ -1,0 +1,60 @@
+pipeline {
+    agent any
+ 
+    tools {
+        maven 'Maven3'
+        jdk  'jdk21'
+    }
+ 
+    stages {
+ 
+        stage('Checkout') {
+            steps {
+                git branch: 'master',
+                    url: 'https://github.com/surajforu/Selenium_Automation_project'
+            }
+        }
+ 
+        stage('Build') {
+            steps {
+			   dir('TutorialsNinjaFramework') 
+                bat 'mvn clean'
+            }
+        }
+ 
+        stage('Compile') {
+            steps {
+							   dir('TutorialsNinjaFramework') 
+
+                bat 'mvn compile'
+            }
+        }
+ 
+        stage('Test') {
+            steps {
+							   dir('TutorialsNinjaFramework') 
+
+                bat 'mvn test'
+            }
+        }
+ 
+        stage('Package') {
+            steps {
+							   dir('TutorialsNinjaFramework') 
+
+                bat 'mvn package'
+            }
+        }
+    }
+ 
+    post {
+        success {
+            echo 'Build Successful'
+        }
+ 
+        failure {
+            echo 'Build Failed'
+        }
+    }
+}
+ 
