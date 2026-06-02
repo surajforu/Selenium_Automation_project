@@ -1,38 +1,18 @@
 package runner;
 
-import org.junit.runner.RunWith;
-
-import io.cucumber.junit.Cucumber;
-
-import io.cucumber.junit.CucumberOptions;
-
-@RunWith(Cucumber.class)
+import io.cucumber.testng.AbstractTestNGCucumberTests;
+import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
-
-features =
-"src/test/resources/features",
-
-glue = {
-"stepDefinitions",
-"hooks"
-},
-
-//tags = "@smoke",
-
-plugin = {
-
-"pretty",
-
-"html:target/cucumber-report.html",
-
-"json:target/cucumber.json",
-
-"junit:target/cucumber.xml"
-}
-
+        features = "src/test/resources/features",
+        glue = {"stepDefinitions", "hooks"},
+        plugin = {
+                "pretty",
+                "html:target/cucumber-report.html",
+                "json:target/cucumber.json",
+                "junit:target/cucumber.xml"
+        }
 )
-
-public class TestRunner {
+public class TestRunner extends AbstractTestNGCucumberTests {
 
 }
