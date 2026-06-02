@@ -112,6 +112,17 @@
     <build>
 
         <plugins>
+          <plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-surefire-plugin</artifactId>
+    <version>3.5.4</version>
+    <configuration>
+        <suiteXmlFiles>
+            <!-- Double check that your file is named exactly testng.xml -->
+            <suiteXmlFile>testng.xml</suiteXmlFile>
+        </suiteXmlFiles>
+    </configuration>
+</plugin>
 
             <!-- Maven Compiler Plugin -->
 
