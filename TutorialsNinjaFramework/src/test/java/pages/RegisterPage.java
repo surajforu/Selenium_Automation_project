@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import utils.TestData;
 
@@ -36,8 +37,12 @@ public class RegisterPage {
 
     public void clickMyAccount() {
 
-        driver.findElement(myAccount).click();
-    }
+    driver.findElement(myAccount);
+
+    ((JavascriptExecutor) driver)
+            .executeScript("arguments[0].click();",
+                    driver.findElement(myAccount));
+}
 
     public void clickRegister() {
 
