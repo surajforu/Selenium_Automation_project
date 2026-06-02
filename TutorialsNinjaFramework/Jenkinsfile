@@ -10,7 +10,7 @@ pipeline {
  
         stage('Checkout') {
             steps {
-                git branch: 'master', url: 'https://github.com/surajforu/Selenium_Automation_project'
+                git branch: 'New_Branch_1', url: 'https://github.com/surajforu/Selenium_Automation_project'
             }
         }
  
